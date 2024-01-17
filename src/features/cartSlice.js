@@ -1,8 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit"
-
+import { smartwatches } from "../data";
 
 const initialState = {
-    products : [],
+    products : smartwatches,
     amount : 0,
     total : 0
 }
