@@ -1,11 +1,14 @@
 import { useDispatch } from "react-redux";
-import { incrementAmount } from "../features/cartSlice";
+import { incrementAmount,decrementAmount } from "../features/cartSlice";
 
 const Product = ({ data }) => {
     const dispatch = useDispatch();
     const { name, price, amount, image } = data;
-    const clickHandler = () => {
+    const incrementProduct = () => {
         dispatch(incrementAmount(data));
+    };
+    const decrementProduct = () => {
+        dispatch(decrementAmount(data));
     };
 
     return (
@@ -19,9 +22,9 @@ const Product = ({ data }) => {
             <div className="flex flex-col items-center">
                 <p className="text-lg font-medium">Amount</p>
                 <div className="flex flex-row items-center gap-4 text-gray-500 font-medium">
-                    <button className="text-xl">-</button>
+                    <button className="text-xl" onClick={decrementProduct}>-</button>
                     <p>{amount} </p>
-                    <button className="text-xl" onClick={clickHandler}>+</button>
+                    <button className="text-xl" onClick={incrementProduct }>+</button>
                 </div>
             </div>
         </div>
